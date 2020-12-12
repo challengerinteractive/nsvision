@@ -4,17 +4,20 @@ from __future__ import print_function
 from io import BytesIO
 from warnings import warn
 from re import sub
-from base64 import b64encode,b64decode
+from base64 import b64encode, b64decode
 
-# Specify which functions to be imported to be used with nv as nv.__functionname__()
-# Functions included in __all__ will be imported on calling "from nsvision.image_utils import *"
-# While creating a new function, don't forget to mention below incase you want to use with nv as nv.new_func()
+# Specify which functions to be imported
+# to be used with nv as nv.__functionname__()
+# Functions included in __all__ will be imported
+# on calling "from nsvision.image_utils import *"
+# While creating a new function, don't forget to mention
+# below incase you want to use with nv as nv.new_func()
 __all__ = [
-    "imread","imurl", "load_image_as_object", # image reading functions
-    "expand_dims","reduce_dims", # functions having numpy array operations 
-    "imshow","get_image_from_array", # functions retriving / displaying images
-    "imsave", # functions writing image  
-    "base64_to_bytes","image_to_base64", # functions performing base64 operations
+    "imread", "imurl", "load_image_as_object",  # image reading functions
+    "expand_dims", "reduce_dims",  # functions having numpy array operations
+    "imshow", "get_image_from_array",  # retriving / displaying images
+    "imsave",  # functions writing image
+    "base64_to_bytes", "image_to_base64",  # performing base64 operations
 ]
 
 
@@ -31,7 +34,7 @@ try:
     from numpy import min as npmin
 except ImportError:
     raise ImportError('Could not import PIL.Image. or Numpy '
-        'This library requires PIL >= 7.0.0 and numpy >= 1.18.1')
+                      'This library requires PIL >= 7.0.0 and numpy >= 1.18.1')
 
 
 interpolation_methods = {
@@ -44,7 +47,7 @@ interpolation_methods = {
 }
 
 
-def imread(image_path,resize=None,color_mode = None,interpolation='nearest',dtype='float32',return_original = False,normalize=False):
+def imread(image_path, resize=None, color_mode=None, interpolation='nearest', dtype='float32', return_original=False, normalize=False):
     """Converts a PIL Image instance to a Ndarray optimised for model.
     Parameters
     ----------
@@ -63,7 +66,8 @@ def imread(image_path,resize=None,color_mode = None,interpolation='nearest',dtyp
         dtype: Dtype to use for the returned array.
             Default: float32
 
-        return_original: Returns original image array along with resized image array.
+        return_original:
+        Returns original image array along with resized image array.
             Default: False
             Note: This parameter only works with resize parameter
 
