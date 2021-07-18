@@ -31,7 +31,7 @@ setup(
     license="MIT",
     packages=["nsvision", "nsvision.tools","nsvision.xml","nsvision.s3bucket","nsvision.image_augmentation",],
     install_requires=[
-        'numpy==1.18.3',
+        'numpy>=1.21.0,<=1.22.0',
         'Pillow==7.0.0'
     ],
     classifiers=classifiers,
